@@ -18,10 +18,9 @@ interface Dado {
 
 export default function Home() {
   const [texto, setTexto] = useState('')
-
-  // const [records, setRecords] = useState<string[]>([])
   const [data, setData] = useState<Dado[]>([])
 
+  // const [records, setRecords] = useState<string[]>([])
   // const handSubmit = async (event: FormEvent) => {
   //   event.preventDefault()
   //   setRecords([...records, texto].reverse())
@@ -35,7 +34,6 @@ export default function Home() {
   useEffect(() => {
     const getData = async () => {
       const responseData = await fetchData()
-      console.log(responseData)
       setData(responseData || [])
     }
     getData()
@@ -48,6 +46,8 @@ export default function Home() {
       console.log('Resposta do POST:', response.data)
 
       fetchData()
+      setData(data || [])
+      setTexto('')
     } catch (error) {
       console.error('Erro ao enviar a requisição POST:', error)
     }

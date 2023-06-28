@@ -20,7 +20,7 @@ export default function Twitter() {
     <div>
       <Texto value={text} onChange={handleTextChange} />
       <Botao onClick={handleButtonClick} />
-      <Card descricao={cardContent} url="sdfsdf" />
+      <Card descricao={cardContent} url="www.terra.com.br" />
     </div>
   )
 }
