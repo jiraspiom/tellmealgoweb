@@ -33,8 +33,12 @@ export default function Home() {
 
   useEffect(() => {
     const getData = async () => {
-      const responseData = await fetchData()
-      setData(responseData || [])
+      try {
+        const responseData = await fetchData()
+        setData(responseData)
+      } catch (error) {
+        console.error('Erro ao carregar os dados:', error)
+      }
     }
     getData()
   }, [])
@@ -45,9 +49,14 @@ export default function Home() {
 
       console.log('Resposta do POST:', response.data)
 
-      fetchData()
-      setData(data || [])
-      setTexto('')
+      if (response.status === 200) {
+        const novoDado = response.data
+        setData((prevData) => [novoDado, ...prevData])
+        setTexto('')
+      } else {
+        console.error('Erro ao adicionar o dado:', response.status)
+      }
+      // fetchData()
     } catch (error) {
       console.error('Erro ao enviar a requisição POST:', error)
     }
