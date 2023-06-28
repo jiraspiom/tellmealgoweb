@@ -1,16 +1,25 @@
-interface Carde {
-  titulo: string
+import Image from 'next/image'
+
+interface CardTwi {
+  descricao: string
+  url: string
 }
-export function Card({ titulo }: Carde) {
+
+export function Card({ descricao, url }: CardTwi) {
   return (
     <div className="flex items-center justify-center bg-gray-50 p-10 dark:bg-black">
       <div className="max-w-xl rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-gray-800">
         <div className="flex justify-between">
           <div className="flex items-center">
-            <img
-              className="h-11 w-11 rounded-full"
-              src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIADgAKQMBEQACEQEDEQH/xAAcAAACAgIDAAAAAAAAAAAAAAAABwUGAQgCAwT/xAAsEAABAwMCBAYCAwEAAAAAAAABAgMEAAURBjESFCFBBxNRYXGBIpIVYmMy/8QAGgEAAgMBAQAAAAAAAAAAAAAAAAQBAwUCBv/EACoRAAICAQMEAAQHAAAAAAAAAAABAgMRBCExEhNRoQVxgfAVIiNCYcHh/9oADAMBAAIRAxEAPwB2SX2osZ2RIWG2WkFbizslIGSamMXJpLkhvCyxZyvFNyZPbiWSMyPMWEIMjJUrJ6HAIx95rVr+Fyi27nhLxz/nv6CluqxDMF9XwWPTuruYlOW++ORWpqXOBCo/F5aidhxHvt6deg917tFJQ7lafT7Jp1UZPplyW6kRsKACgCF1lZHdRacmWpiYqI4+E4dAzjCgcEdwcYPzVtNnamp+CGsrAk7no2boa92tyRcW3kyS5h9tg4ZCeHJIJ6/9E/VbNGrjcpJr7+0J6qtut4WTDzi1zZD63VriLeSVS0oKUkLUQFY9yD9inY31wgq/3Ye3yXAiqZyj1Y4H3Z5PN2uLIypQcbCgpW6h2J9zvXlprEmjYrk5QTZ7K5OwoAKAI+92y33SIGrmhBQhQW2tRwW19lJPY7/IJB6VKbXAcCl19OMKSxp5L8RUBltDrQaxlQyeHixtggnA339g9odOk3c229+fYvqrpNdCWEcrJ4lzID4YdaZfit4CwCeIkgEkHYb7Y3rQfw6F0OrOJCVNk6Eo8oYOndZQbuwl51aI/My1MQ2iricdSOnEQNuvF7dN6y7tJOt4W+Fv4Q/C1PnbPBZ6ULgoA1t1JPvlh1NcYd9KpilrKkmQokKQSeFSD2BHbsR7V6GjonWnDYQ1GmVjTb3RGcl/MxOccVy6g4GWsJ4g5gErP1lH7H0rpycJ9KDamJOwvDLVcuKXmIDUTGEFMt8Jcc/sAAQB23z871V+IVQ2zn5Iu7Te7LFpnw51DYLhDmyJPClxfku/xy0qdYSdlArTjGd8dcetVW66q2Ljj5Z49M67bTyhv8v/ALPfvWPkuO+oJFr4i6ChXW7vamu11cjW6LEHnstNZWoI4j+KicDOfQ09ptVOEe3BbtnEop7iXZmOzLkjlW/IS4tKGWGySG05/FIP3vuSSdzW3CuKX5t/Itaso2xSCAATk+teWHDNABQAUALjx5uPKaJTFSohU2U22QO6U5Wc+34im9Ev1c+DmXAr/CSyrvesIhKCY8IiS8rsOE/iPtWOnpmtTU3dumXl7L+/RSo5kkbL1gDAUAFABQAvvGHSV01ZbbYzZ0trdZkkuBxwICUlOOL66bdetMaa2NcsyIayTHh9o2No2zmOhYemPkKkyMY4iNgP6jJx8k96jUXu6X8LgEsFpqgkKACgD//Z"
-            />
+            <div>
+              <Image
+                className="h-11 w-11 rounded-full"
+                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIADgAKQMBEQACEQEDEQH/xAAcAAACAgIDAAAAAAAAAAAAAAAABwUGAQgCAwT/xAAsEAABAwMCBAYCAwEAAAAAAAABAgMEAAURBjESFCFBBxNRYXGBIpIVYmMy/8QAGgEAAgMBAQAAAAAAAAAAAAAAAAQBAwUCBv/EACoRAAICAQMEAAQHAAAAAAAAAAABAgMRBCExEhNRoQVxgfAVIiNCYcHh/9oADAMBAAIRAxEAPwB2SX2osZ2RIWG2WkFbizslIGSamMXJpLkhvCyxZyvFNyZPbiWSMyPMWEIMjJUrJ6HAIx95rVr+Fyi27nhLxz/nv6CluqxDMF9XwWPTuruYlOW++ORWpqXOBCo/F5aidhxHvt6deg917tFJQ7lafT7Jp1UZPplyW6kRsKACgCF1lZHdRacmWpiYqI4+E4dAzjCgcEdwcYPzVtNnamp+CGsrAk7no2boa92tyRcW3kyS5h9tg4ZCeHJIJ6/9E/VbNGrjcpJr7+0J6qtut4WTDzi1zZD63VriLeSVS0oKUkLUQFY9yD9inY31wgq/3Ye3yXAiqZyj1Y4H3Z5PN2uLIypQcbCgpW6h2J9zvXlprEmjYrk5QTZ7K5OwoAKAI+92y33SIGrmhBQhQW2tRwW19lJPY7/IJB6VKbXAcCl19OMKSxp5L8RUBltDrQaxlQyeHixtggnA339g9odOk3c229+fYvqrpNdCWEcrJ4lzID4YdaZfit4CwCeIkgEkHYb7Y3rQfw6F0OrOJCVNk6Eo8oYOndZQbuwl51aI/My1MQ2iricdSOnEQNuvF7dN6y7tJOt4W+Fv4Q/C1PnbPBZ6ULgoA1t1JPvlh1NcYd9KpilrKkmQokKQSeFSD2BHbsR7V6GjonWnDYQ1GmVjTb3RGcl/MxOccVy6g4GWsJ4g5gErP1lH7H0rpycJ9KDamJOwvDLVcuKXmIDUTGEFMt8Jcc/sAAQB23z871V+IVQ2zn5Iu7Te7LFpnw51DYLhDmyJPClxfku/xy0qdYSdlArTjGd8dcetVW66q2Ljj5Z49M67bTyhv8v/ALPfvWPkuO+oJFr4i6ChXW7vamu11cjW6LEHnstNZWoI4j+KicDOfQ09ptVOEe3BbtnEop7iXZmOzLkjlW/IS4tKGWGySG05/FIP3vuSSdzW3CuKX5t/Itaso2xSCAATk+teWHDNABQAUALjx5uPKaJTFSohU2U22QO6U5Wc+34im9Ev1c+DmXAr/CSyrvesIhKCY8IiS8rsOE/iPtWOnpmtTU3dumXl7L+/RSo5kkbL1gDAUAFABQAvvGHSV01ZbbYzZ0trdZkkuBxwICUlOOL66bdetMaa2NcsyIayTHh9o2No2zmOhYemPkKkyMY4iNgP6jJx8k96jUXu6X8LgEsFpqgkKACgD//Z"
+                width={88}
+                height={88}
+                alt="Profile da conta"
+              />
+            </div>
             <div className="ml-1.5 text-sm leading-tight">
               <span className="block font-bold text-black dark:text-white ">
                 Mega man
@@ -30,13 +39,23 @@ export function Card({ titulo }: Carde) {
           </svg>
         </div>
         <p className="mt-3 block text-xl leading-snug text-black dark:text-white">
-          {titulo}
+          {descricao}
         </p>
         <img
           className="mt-2 rounded-2xl border border-gray-100 dark:border-gray-700"
+          src={url}
           //   src="https://pbs.twimg.com/media/FstyKfraIAAvEHa?format=jpg&name=large"
-          src="https://pbs.twimg.com/media/Fy0ahjfaIAIbTv9?format=jpg&name=240x240"
         />
+
+        {/* <Image
+          className="mt-2 rounded-2xl border border-gray-100 dark:border-gray-700"
+          src={url}
+          width={256}
+          height={256}
+          alt="imagem do corpo"
+        /> */}
+        <img src="{url}" alt="" />
+
         <p className="my-0.5 py-1 text-base text-gray-500 dark:text-gray-400">
           10:05 AM · Dec 19, 2020
         </p>

@@ -1,37 +1,79 @@
 'use client'
-import { FormEvent, useState } from 'react'
-import { Card } from './components/Card'
+import { useEffect, useState } from 'react'
+import { Card } from '../components/Card'
+import { Texto } from '@/components/Texto'
+import { Botao } from '@/components/Botao'
+import { fetchData, postData } from './utils/api'
+
+interface Dado {
+  cor: string
+  coracao: null
+  dataAt: string
+  id: string
+  segredo: string
+  urlImage: string
+  __v: number
+}
 
 export default function Home() {
-  const [text, setText] = useState('')
-  const [records, setRecords] = useState<string[]>([])
+  const [texto, setTexto] = useState('')
 
-  const handSubmit = async (event: FormEvent) => {
-    event.preventDefault()
-    setRecords([...records, text].reverse())
-    setText('')
+  // const [records, setRecords] = useState<string[]>([])
+  const [data, setData] = useState<Dado[]>([])
+
+  // const handSubmit = async (event: FormEvent) => {
+  //   event.preventDefault()
+  //   setRecords([...records, texto].reverse())
+  //   setTexto('')
+  // }
+
+  const handleOnChange = (text: string) => {
+    setTexto(text)
+  }
+
+  useEffect(() => {
+    const getData = async () => {
+      const responseData = await fetchData()
+      console.log(responseData)
+      setData(responseData || [])
+    }
+    getData()
+  }, [])
+
+  const handlePostData = async () => {
+    try {
+      const response = await postData({ segredo: texto })
+
+      console.log('Resposta do POST:', response.data)
+
+      fetchData()
+    } catch (error) {
+      console.error('Erro ao enviar a requisição POST:', error)
+    }
   }
 
   return (
     <div>
-      <form onSubmit={handSubmit} className="flex">
-        <input
-          type="text"
-          value={text}
-          onChange={(event) => setText(event.target.value)}
-          className="text-blue-500"
-        />
-        <button type="submit">Salvar</button>
-      </form>
-      <ul>
-        <div className="">
-          {records.map((record, index) => (
-            <li key={index}>
-              <Card titulo={record} />
-            </li>
-          ))}
-        </div>
-      </ul>
+      <div>
+        <Texto value={texto} onChange={handleOnChange} />
+      </div>
+      <div>
+        <Botao onClick={handlePostData} />
+      </div>
+
+      <div>
+        {data.length > 0 ? (
+          <ul>
+            {data.map((item, index) => (
+              <li key={index}>
+                <Card descricao={item.segredo} url={item.urlImage} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>Loadizando...</p>
+        )}
+      </div>
     </div>
   )
 }
