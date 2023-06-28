@@ -22,10 +22,10 @@ export function Card({ descricao, url }: CardTwi) {
             </div>
             <div className="ml-1.5 text-sm leading-tight">
               <span className="block font-bold text-black dark:text-white ">
-                Mega man
+                Anonime
               </span>
               <span className="block font-normal text-gray-500 dark:text-gray-400">
-                @megaman
+                @anonime
               </span>
             </div>
           </div>
