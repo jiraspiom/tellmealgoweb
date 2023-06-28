@@ -10,7 +10,7 @@ interface DadosPost {
 export async function fetchData(): Promise<any> {
   try {
     const response: AxiosResponse = await axios.get(
-      'https://localhost:7110/v1/Segredo',
+      'https://tellmelu.onrender.com/v1/Segredo',
     )
     return response.data
   } catch (error) {
@@ -23,7 +23,7 @@ export const postData = async (data: DadosPost): Promise<AxiosResponse> => {
   try {
     console.log(data)
     const response: AxiosResponse = await axios.post(
-      'https://localhost:7110/v1/Segredo',
+      'https://tellmelu.onrender.com/v1/Segredo',
       data,
     )
     return response
