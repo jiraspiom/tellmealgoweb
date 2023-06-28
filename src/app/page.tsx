@@ -4,6 +4,7 @@ import { Card } from '../components/Card'
 import { Texto } from '@/components/Texto'
 import { Botao } from '@/components/Botao'
 import { fetchData, postData } from './utils/api'
+import { Carregando } from '@/components/Carregando'
 
 interface Dado {
   cor: string
@@ -60,7 +61,7 @@ export default function Home() {
       <div>
         <Botao onClick={handlePostData} />
       </div>
-
+      <hr className="border-4 border-gray-800" />
       <div>
         {data.length > 0 ? (
           <ul>
@@ -71,7 +72,8 @@ export default function Home() {
             ))}
           </ul>
         ) : (
-          <p>Loadizando...</p>
+          // <p>Loadizando...</p>
+          <Carregando />
         )}
       </div>
     </div>
