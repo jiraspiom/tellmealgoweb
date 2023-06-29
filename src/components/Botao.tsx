@@ -5,11 +5,13 @@ interface iBotao {
 }
 export function Botao({ onClick }: iBotao) {
   return (
-    <button
-      onClick={onClick}
-      className=" mr-8 mt-5 rounded-full bg-blue-400 px-8 py-2 font-bold text-white hover:bg-blue-500"
-    >
-      Hi :)
-    </button>
+    <div>
+      <button
+        onClick={onClick}
+        className="mb-2 mr-2 mt-2 rounded-full bg-blue-400  px-8 py-2 font-bold text-white hover:bg-blue-500"
+      >
+        Hi :)
+      </button>
+    </div>
   )
 }

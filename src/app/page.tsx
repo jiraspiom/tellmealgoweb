@@ -35,7 +35,7 @@ export default function Home() {
     const getData = async () => {
       try {
         const responseData = await fetchData()
-        setData(responseData)
+        setData(responseData || [])
       } catch (error) {
         console.error('Erro ao carregar os dados:', error)
       }
@@ -64,7 +64,7 @@ export default function Home() {
 
   return (
     <div>
-      <div>
+      <div className="h-screen">
         <Texto value={texto} onChange={handleOnChange} />
       </div>
       <div>

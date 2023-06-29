@@ -5,8 +5,8 @@ interface iTexto {
 
 export function Texto({ value, onChange }: iTexto) {
   return (
-    <div className="flex">
-      <div className="mt-2 flex-1 px-2 pt-2">
+    <div>
+      <div className="mb-2 mt-2  px-2 pt-2">
         <textarea
           value={value}
           onChange={(e) => onChange(e.target.value)}

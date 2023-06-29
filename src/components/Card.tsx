@@ -7,7 +7,7 @@ interface CardTwi {
 
 export function Card({ descricao, url }: CardTwi) {
   return (
-    <div className="flex items-center justify-center bg-gray-50 p-10 dark:bg-black">
+    <div className="flex items-center justify-center bg-gray-50 p-2 dark:bg-black">
       <div className="max-w-xl rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-gray-800">
         <div className="flex justify-between">
           <div className="flex items-center">
