@@ -64,7 +64,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="h-screen">
+      <div className="">
         <Texto value={texto} onChange={handleOnChange} />
       </div>
       <div>
