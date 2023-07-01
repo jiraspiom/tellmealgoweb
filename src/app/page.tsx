@@ -47,7 +47,7 @@ export default function Home() {
 
   const handlePostData = async () => {
     try {
-      const response = await postData({ segredo: texto, corCss: cor })
+      const response = await postData({ segredo: texto, cor })
 
       console.log('Resposta do POST:', response.data)
 
