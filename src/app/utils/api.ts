@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from 'axios'
 
 interface DadosPost {
   segredo: string
+  corCss: string
 }
 
 // 'https://localhost:7110/v1/Segredo',
