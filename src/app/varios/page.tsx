@@ -1,5 +1,5 @@
-import { CardLogar } from '@/components/CardLogar'
 import { Footer } from '@/components/Footer'
+import { CardLogar } from '@/components/Logar'
 
 export default function Varios() {
   return (
