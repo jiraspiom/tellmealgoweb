@@ -13,6 +13,8 @@ export default function Twitter() {
   const [cor, setCor] = useState('')
 
   const handleButtonClick = () => {
+    const url = window.location.href
+    console.log(url)
     setCardContent(text)
   }
   const handleIndicadorClick = (corNova: string) => {
