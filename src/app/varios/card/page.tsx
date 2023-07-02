@@ -1,33 +1,33 @@
 'use client'
-import { useState } from 'react';
-import Draggable from 'react-draggable';
+import { useState } from 'react'
+import Draggable from 'react-draggable'
 
 type Message = {
-  id: number;
-  content: string;
-};
+  id: number
+  content: string
+}
 
 const messages: Message[] = [
   { id: 1, content: 'Mensagem 1' },
   { id: 2, content: 'Mensagem 2' },
   { id: 3, content: 'Mensagem 3' },
   // Adicione mais mensagens se necessário
-];
+]
 
-const Card = () => {
-  const [currentMessage, setCurrentMessage] = useState<Message | null>(null);
+export default function Card () {
+  const [currentMessage, setCurrentMessage] = useState<Message | null>(null)
 
   const handleDragStop = () => {
     const nextMessageIndex = messages.findIndex(
       (message) => message.id === currentMessage?.id
-    ) + 1;
+    ) + 1
 
     if (nextMessageIndex < messages.length) {
-      setCurrentMessage(messages[nextMessageIndex]);
+      setCurrentMessage(messages[nextMessageIndex])
     } else {
-      setCurrentMessage(null);
+      setCurrentMessage(null)
     }
-  };
+  }
 
   return (
     <div>
@@ -41,7 +41,5 @@ const Card = () => {
 
       {!currentMessage && <p>Todas as mensagens foram exibidas.</p>}
     </div>
-  );
-};
-
-export default Card;
+  )
+}
