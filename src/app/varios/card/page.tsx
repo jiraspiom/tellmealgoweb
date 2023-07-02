@@ -13,7 +13,7 @@ const messages: Message[] = [
   // Adicione mais mensagens se necessário
 ];
 
-const Home = () => {
+const Card = () => {
   const [currentMessage, setCurrentMessage] = useState<Message | null>(null);
 
   const handleDragStop = () => {
