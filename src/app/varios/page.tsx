@@ -1,5 +1,6 @@
 import { Footer } from '@/components/Footer'
 import { CardLogar } from '@/components/Logar'
+import { Toast } from '@/components/Toast'
 
 export default function Varios() {
   return (
@@ -7,6 +8,7 @@ export default function Varios() {
       {/* <Indicador /> */}
       <CardLogar />
       <Footer />
+      <Toast />
     </div>
   )
 }
