@@ -49,7 +49,7 @@ export default function Home() {
     try {
       const response = await postData({ segredo: texto, cor })
 
-      console.log('Resposta do POST:', response.data)
+      // console.log('Resposta do POST:', response.data)
 
       if (response.status === 200) {
         const novoDado = response.data
