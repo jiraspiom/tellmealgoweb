@@ -47,8 +47,6 @@ export function Card({ descricao, url, cor }: CardTwi) {
           src={url}
         />
 
-        <img src="{url}" alt="" />
-
         <p className="my-0.5 py-1 text-base text-gray-500 dark:text-gray-400">
           00:00 AM · Jan 01, 0000
         </p>

@@ -42,11 +42,7 @@ export default function Twitter() {
           </div>
         </div>
         <hr className="border-4 border-gray-800" />
-        <Card
-          descricao={cardContent}
-          url="https://media.istockphoto.com/id/1221000031/pt/foto/isolated-pink-guava-fruits.jpg?s=2048x2048&w=is&k=20&c=i2G46B0RXP4kOYy1CN4e57EdykeC12abXFbAy5eIuTY="
-          cor="bg-green-500"
-        />
+        <Card descricao={cardContent} url="" cor="bg-green-500" />
         <Responsivo />
       </div>
     </div>
