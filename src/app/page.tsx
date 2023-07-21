@@ -107,7 +107,7 @@ export default function Opa() {
       </div>
 
       <div className="flex flex-row">
-        <div className="flex items-center ">
+        <div className="flex items-center">
           <Botao onClick={handlePostData} novaCor={cor} />
         </div>
 
