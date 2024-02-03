@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.autoresize {
+    overflow: hidden;
+    resize: none;
+  }
+
+  .autoresize textarea {
+    height: auto;
+    overflow-y: hidden;
+  }

@@ -12,6 +12,7 @@ import {
   HiCalendar,
   HiOutlineMapPin,
 } from "react-icons/hi2";
+import { useRef } from "react";
 
 const schemaForm = z.object({
   comentario: z.string().max(188, 'max 188 caracter'),
@@ -20,7 +21,7 @@ const schemaForm = z.object({
 type FormProps = z.infer<typeof schemaForm>
 
 export default function TwitterX() {
-
+  const textareaRef = useRef(null);
   const {
     register,
     handleSubmit,
@@ -33,6 +34,14 @@ export default function TwitterX() {
   const onSubmit = (data: FormProps) => {
     console.log(data)
   }
+
+  // const autoresize = () => {
+  //   const textarea = textareaRef.current;
+  //   if (textarea) {
+  //     textarea.style.height = 'auto';
+  //     textarea.style.height = `${textarea.scrollHeight}px`;
+  //   }
+  // };
 
   return (
     <div>
@@ -47,12 +56,15 @@ export default function TwitterX() {
           className="w-full"
         >
           <Label>Twitter</Label>
-          <div>
+          <div className="autoresize">
             <textarea {...register('comentario')}
-              className="box-border w-full bg-blackA5 shadow-blackA9 inline-flex appearance-none items-center justify-center rounded-[4px] text-lg leading-none text-gray-900 outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA9 resize-none"
+              // className="border-none box-border w-full bg-blackA5 shadow-blackA9 inline-flex appearance-none items-center justify-center rounded-[4px] text-lg leading-none text-gray-900 outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA9 resize-none"
+              className="resize-none border-none focus:outline-none bg-transparent w-full p-2"
               placeholder="What's happening?"
-              required
+              // ref={textareaRef}  
+              // onInput={autoresize}
             />
+            {/* <AutoResizeTextarea {...register('comentario')}/> */}
             {errors.comentario && <p>{errors.comentario.message}</p>}
           </div>
 
