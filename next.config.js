@@ -4,11 +4,9 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'cataas.com',
-        port: '',
-        pathname: '/cat/**',
-      },
+        protocol: "https",
+        hostname: "**",
+      }
     ],
   },
   env: {
@@ -17,3 +15,11 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+/**
+      {
+        protocol: 'https',
+        hostname: 'cataas.com',
+        port: '',
+        pathname: '/cat/**',
+      },
+  */
