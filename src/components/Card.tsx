@@ -47,6 +47,7 @@ export function Card({ descricao, url, cor }: CardTwi) {
           src={url}
           width={288}
           height={288}
+          alt="gatos"
         />
 
         <p className="my-0.5 py-1 text-base text-gray-500 dark:text-gray-400">
