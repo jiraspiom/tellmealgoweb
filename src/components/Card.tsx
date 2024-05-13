@@ -42,9 +42,11 @@ export function Card({ descricao, url, cor }: CardTwi) {
         <p className="mt-3 block text-xl leading-snug text-black dark:text-white">
           {descricao}
         </p>
-        <img
+        <Image
           className="mt-2 rounded-2xl border border-gray-100 dark:border-gray-700"
           src={url}
+          width={288}
+          height={288}
         />
 
         <p className="my-0.5 py-1 text-base text-gray-500 dark:text-gray-400">
