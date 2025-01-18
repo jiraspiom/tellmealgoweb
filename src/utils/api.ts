@@ -17,6 +17,7 @@ interface DadoSegredo {
 
 export const getData = async (): Promise<DadoSegredo[]> => {
   // const url = 'https://tellmelu.onrender.com/v1/Segredo'
+
   const url = 'https://honoverselapi.vercel.app/api/segredos'
   try {
     const response = await fetch(url, {
