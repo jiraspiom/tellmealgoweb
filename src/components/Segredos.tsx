@@ -1,7 +1,5 @@
 'use client'
 
-import { getData } from '@/utils/actions'
-import { useState, useEffect } from 'react'
 import CardTwitter from './CardTwitter'
 import { Carregando } from './Carregando'
 import WhatsHappening from './WhatsHappening'

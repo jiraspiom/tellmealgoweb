@@ -77,9 +77,9 @@ export default function SegredosBackup({
       <WhatsHappening />
 
       <div className="">
-        {segredos.length > 0 ? (
+        {dados.length > 0 ? (
           <ul>
-            {segredos.map((item, index) => (
+            {dados.map((item, index) => (
               <li key={Number(index)}>
                 <CardTwitter
                   descricao={item.segredo}
