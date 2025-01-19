@@ -33,8 +33,8 @@ export default function Home() {
 
         const newData = responseData.slice(0, 8)
         setDados(newData)
-        // setPage(1)
-        // setHasMore(responseData.length > 8)
+        setPage(1)
+        setHasMore(responseData.length > 8)
         // console.log(responseData)
         // console.log(newData)
         // console.log(responseData.length > 8)
