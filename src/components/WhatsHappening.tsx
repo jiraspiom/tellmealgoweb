@@ -1,4 +1,5 @@
-import { postData } from '@/utils/api'
+'use client'
+import { postData } from '@/utils/actions'
 import { useState } from 'react'
 import BotaoTwitter from './BotaoTwitter'
 import { Indicador } from './Indicador'
@@ -10,7 +11,10 @@ export default function WhatsHappening() {
     const texto = formData.get('texto')?.toString() || ''
 
     const response = await postData({ segredo: texto, cor })
-    console.log('dados enviado', response)
+
+    if (response) {
+      console.log(';)')
+    }
   }
 
   const handleIndicadorClick = (corNova: string) => {

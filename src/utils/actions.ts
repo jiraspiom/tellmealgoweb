@@ -1,3 +1,4 @@
+'use server'
 import { revalidatePath } from 'next/cache'
 
 interface DadosPost {
@@ -45,6 +46,7 @@ export const getData = async (): Promise<DadoSegredo[]> => {
 
 export const postData = async (data: DadosPost) => {
   const url = String(process.env.NEXT_PUBLIC_API)
+
   try {
     const response = await fetch(url, {
       method: 'POST',
@@ -58,6 +60,7 @@ export const postData = async (data: DadosPost) => {
       throw new Error(`HTTP error! Status: ${response.status}`)
     }
 
+    // todo retirado por que esta dando erro
     revalidatePath('/')
 
     return response.json()

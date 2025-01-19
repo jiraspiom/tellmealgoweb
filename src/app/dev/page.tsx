@@ -5,7 +5,7 @@ import CardTwitter from '@/components/CardTwitter'
 import { Carregando } from '@/components/Carregando'
 import { Indicador } from '@/components/Indicador'
 import { Texto } from '@/components/Texto'
-import { getData, postData } from '@/utils/api'
+import { getData, postData } from '@/utils/actions'
 import { useState, useEffect } from 'react'
 
 interface Dado {
