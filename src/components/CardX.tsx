@@ -3,26 +3,22 @@ import Image from 'next/image'
 import { format } from 'date-fns'
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card'
 import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
-import { Button, buttonVariants } from './ui/button'
+import { Button } from './ui/button'
 import { postLike } from '@/utils/actions'
+import type { DadoSegredo } from '@/lib/interfaces'
 
 interface CardXProps {
-  id: string
-  descricao: string
-  url: string
-  cor: string
-  data?: string
-  coracao: string
+  segredo: DadoSegredo
 }
 
-export default function CardX({
-  descricao,
-  url,
-  cor,
-  data,
-  coracao,
-  id,
-}: CardXProps) {
+//   id: string
+//   descricao: string
+//   url: string
+//   cor: string
+//   data?: string
+//   coracao: string
+
+export default function CardX({ segredo }: CardXProps) {
   const clicou = async (id: string) => {
     await postLike(id)
   }
@@ -30,22 +26,22 @@ export default function CardX({
     <Card className="mb-4  min-w-full">
       <CardHeader>
         <div className="flex items-center justify-between">
-          <Avatar className={`mr-2 ${cor} rounded-full p-2`}>
+          <Avatar className={`mr-2 ${segredo.cor} rounded-full p-2`}>
             <AvatarImage src={'/cat01.png'} className="h-12 w-12" />
           </Avatar>
           <p className="my-0.5 py-1  text-gray-500 text-sm dark:text-gray-400">
-            {data && format(data, 'hh:mm a · MMM dd, yyyy')}
+            {segredo.dataAt && format(segredo.dataAt, 'hh:mm a · MMM dd, yyyy')}
           </p>
         </div>
       </CardHeader>
       <CardContent>
         <p className="mt-3 block text-xl leading-snug text-gray-600 dark:text-white mb-2">
-          {descricao}
+          {segredo.segredo}
         </p>
         <div className="flex justify-center w-[388p]">
           <Image
             className="rounded-sm"
-            src={url}
+            src={segredo.urlImage ? segredo.urlImage : 'www'}
             width={388}
             height={388}
             alt="gatos"
@@ -58,8 +54,8 @@ export default function CardX({
 
           <div className="mt-3 flex text-gray-500 dark:text-gray-400">
             <div className="mr-6 flex items-center">
-              <Button variant={'ghost'} onClick={() => clicou(id)}>
-                💣 {coracao ? coracao : 0}
+              <Button variant={'ghost'} onClick={() => clicou(segredo.id)}>
+                💣 {segredo.coracao ? segredo.coracao : 0}
               </Button>
               {/* <span className=""> {coracao ? coracao : 0} </span> */}
             </div>

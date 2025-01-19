@@ -5,22 +5,13 @@ import CardTwitter from '@/components/CardTwitter'
 import { Carregando } from '@/components/Carregando'
 import { Indicador } from '@/components/Indicador'
 import { Texto } from '@/components/Texto'
+import type { DadoSegredo } from '@/lib/interfaces'
 import { getData, postData } from '@/utils/actions'
 import { useState, useEffect } from 'react'
 
-interface Dado {
-  cor: string
-  coracao: null
-  dataAt: string
-  id: string
-  segredo: string
-  urlImage: string
-  __v: number
-}
-
 export default function Home() {
   const [texto, setTexto] = useState('')
-  const [data, setData] = useState<Dado[]>([])
+  const [data, setData] = useState<DadoSegredo[]>([])
   const [cor, setCor] = useState('')
 
   const handleOnChange = (text: string) => {
@@ -85,10 +76,10 @@ export default function Home() {
             {data.map((item, index) => (
               <li key={Number(index)}>
                 <CardTwitter
-                  descricao={item.segredo}
-                  url={item.urlImage}
-                  cor={item.cor}
-                  data={item.dataAt}
+                  descricao={item.segredo ?? ''}
+                  url={item.urlImage ?? ''}
+                  cor={item.cor ?? ''}
+                  data={item.dataAt ?? ''}
                 />
               </li>
             ))}

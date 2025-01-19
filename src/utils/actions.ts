@@ -1,19 +1,10 @@
 'use server'
+import type { DadoSegredo } from '@/lib/interfaces'
 import { revalidatePath } from 'next/cache'
 
 interface DadosPost {
   segredo: string
   cor: string
-}
-
-interface DadoSegredo {
-  cor: string
-  coracao: string
-  dataAt: string
-  id: string
-  segredo: string
-  urlImage: string
-  __v: number
 }
 
 export const getData = async (): Promise<DadoSegredo[]> => {

@@ -4,16 +4,7 @@ import { ScrollArea } from '@radix-ui/react-scroll-area'
 import { Carregando } from './Carregando'
 import WhatsHappening from './WhatsHappening'
 import CardX from './CardX'
-
-interface DadoSegredo {
-  cor: string
-  coracao: string
-  dataAt: string
-  id: string
-  segredo: string
-  urlImage: string
-  __v: number
-}
+import type { DadoSegredo } from '@/lib/interfaces'
 
 export default function Segredos({ segredos }: { segredos: DadoSegredo[] }) {
   return (
@@ -27,14 +18,7 @@ export default function Segredos({ segredos }: { segredos: DadoSegredo[] }) {
           <ul>
             {segredos.map((item, index) => (
               <li key={Number(index)}>
-                <CardX
-                  descricao={item.segredo}
-                  url={item.urlImage}
-                  cor={item.cor}
-                  data={item.dataAt}
-                  coracao={item.coracao}
-                  id={item.id}
-                />
+                <CardX segredo={item} />
               </li>
             ))}
           </ul>

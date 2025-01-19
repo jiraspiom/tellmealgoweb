@@ -5,16 +5,7 @@ import { useState, useEffect } from 'react'
 import CardTwitter from './CardTwitter'
 import { Carregando } from './Carregando'
 import WhatsHappening from './WhatsHappening'
-
-interface DadoSegredo {
-  cor: string
-  coracao: null
-  dataAt: string
-  id: string
-  segredo: string
-  urlImage: string
-  __v: number
-}
+import type { DadoSegredo } from '@/lib/interfaces'
 
 export default function SegredosBackup({
   segredos,
@@ -82,10 +73,10 @@ export default function SegredosBackup({
             {dados.map((item, index) => (
               <li key={Number(index)}>
                 <CardTwitter
-                  descricao={item.segredo}
-                  url={item.urlImage}
-                  cor={item.cor}
-                  data={item.dataAt}
+                  descricao={item.segredo ?? ''}
+                  url={item.urlImage ?? ''}
+                  cor={item.cor ?? ''}
+                  data={item.dataAt ?? ''}
                 />
               </li>
             ))}
