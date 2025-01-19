@@ -3,15 +3,29 @@ import Image from 'next/image'
 import { format } from 'date-fns'
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card'
 import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
+import { Button, buttonVariants } from './ui/button'
+import { postLike } from '@/utils/actions'
 
 interface CardXProps {
+  id: string
   descricao: string
   url: string
   cor: string
   data?: string
+  coracao: string
 }
 
-export default function CardX({ descricao, url, cor, data }: CardXProps) {
+export default function CardX({
+  descricao,
+  url,
+  cor,
+  data,
+  coracao,
+  id,
+}: CardXProps) {
+  const clicou = async (id: string) => {
+    await postLike(id)
+  }
   return (
     <Card className="mb-4  min-w-full">
       <CardHeader>
@@ -44,11 +58,13 @@ export default function CardX({ descricao, url, cor, data }: CardXProps) {
 
           <div className="mt-3 flex text-gray-500 dark:text-gray-400">
             <div className="mr-6 flex items-center">
-              ❤️
-              <span className="ml-3">615</span>
+              <Button variant={'ghost'} onClick={() => clicou(id)}>
+                💣 {coracao ? coracao : 0}
+              </Button>
+              {/* <span className=""> {coracao ? coracao : 0} </span> */}
             </div>
             <div className="mr-6 flex items-center">
-              💬<span className="ml-3">oO people are comment about this</span>
+              💀<span className="ml-3">oO people are comment about this</span>
             </div>
           </div>
         </div>

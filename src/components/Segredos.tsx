@@ -7,7 +7,7 @@ import CardX from './CardX'
 
 interface DadoSegredo {
   cor: string
-  coracao: null
+  coracao: string
   dataAt: string
   id: string
   segredo: string
@@ -32,6 +32,8 @@ export default function Segredos({ segredos }: { segredos: DadoSegredo[] }) {
                   url={item.urlImage}
                   cor={item.cor}
                   data={item.dataAt}
+                  coracao={item.coracao}
+                  id={item.id}
                 />
               </li>
             ))}

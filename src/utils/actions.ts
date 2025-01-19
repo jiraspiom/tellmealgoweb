@@ -8,7 +8,7 @@ interface DadosPost {
 
 interface DadoSegredo {
   cor: string
-  coracao: null
+  coracao: string
   dataAt: string
   id: string
   segredo: string
@@ -50,6 +50,34 @@ export const postData = async (data: DadosPost) => {
   try {
     const response = await fetch(url, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`)
+    }
+
+    // todo retirado por que esta dando erro
+    revalidatePath('/')
+
+    return response.json()
+  } catch (error) {
+    console.error('Fetch POST error:', error)
+    throw error
+  }
+}
+
+export const postLike = async (id: string) => {
+  const url = String(process.env.NEXT_PUBLIC_API)
+
+  const data = { id: id }
+
+  try {
+    const response = await fetch(`${url}/like`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
