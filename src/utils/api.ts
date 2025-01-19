@@ -16,14 +16,19 @@ interface DadoSegredo {
 }
 
 export const getData = async (): Promise<DadoSegredo[]> => {
-  // const url = 'https://tellmelu.onrender.com/v1/Segredo'
+  const url = String(process.env.NEXT_PUBLIC_API)
 
-  const url = 'https://honoverselapi.vercel.app/api/segredos'
+  const headers = new Headers()
+
+  headers.append('Content-Type', 'application/json')
+  headers.append('Accept', 'application/json')
+
   try {
     const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        Accept: 'application/json',
       },
     })
 
@@ -39,10 +44,9 @@ export const getData = async (): Promise<DadoSegredo[]> => {
 }
 
 export const postData = async (data: DadosPost) => {
+  const url = String(process.env.NEXT_PUBLIC_API)
   try {
-    console.log('dados post', data)
-
-    const response = await fetch('https://tellmelu.onrender.com/v1/Segredo', {
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -4,7 +4,7 @@ import { Carregando } from '@/components/Carregando'
 
 import WhatsHappening from '@/components/WhatsHappening'
 import { getData } from '@/utils/api'
-import { use, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface Dado {
   cor: string
@@ -19,16 +19,18 @@ interface Dado {
 export default function Home() {
   const [dados, setDados] = useState<Dado[]>([])
 
-  // const [loading, setLoading] = useState(false)
-  // const [page, setPage] = useState(1)
-  // const [hasMore, setHasMore] = useState(true)
+  const [loading, setLoading] = useState(false)
+  const [page, setPage] = useState(1)
+  const [hasMore, setHasMore] = useState(true)
 
   // const dados = use(getData())
   useEffect(() => {
     const getdados = async () => {
       try {
         const responseData = await getData()
+
         console.log('retornou', responseData)
+
         const newData = responseData.slice(0, 8)
         setDados(newData)
         // setPage(1)
@@ -43,37 +45,37 @@ export default function Home() {
     getdados()
   }, [])
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (
-  //       window.innerHeight + document.documentElement.scrollTop >=
-  //       document.documentElement.offsetHeight - 100
-  //     ) {
-  //       loadMore()
-  //     }
-  //   }
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop >=
+        document.documentElement.offsetHeight - 100
+      ) {
+        loadMore()
+      }
+    }
 
-  //   window.addEventListener('scroll', handleScroll)
-  //   return () => window.removeEventListener('scroll', handleScroll)
-  // })
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  })
 
-  // const loadMore = async () => {
-  //   if (!loading && hasMore) {
-  //     setLoading(true)
-  //     try {
-  //       const responseData = await getData()
-  //       const startIndex = page * 8
-  //       const endIndex = startIndex + 8
-  //       const newData = responseData.slice(startIndex, endIndex)
-  //       setDados(prevData => [...prevData, ...newData])
-  //       setPage(prevPage => prevPage + 1)
-  //       setHasMore(responseData.length > endIndex)
-  //     } catch (error) {
-  //       console.error('Erro ao carregar mais dados:', error)
-  //     }
-  //     setLoading(false)
-  //   }
-  // }
+  const loadMore = async () => {
+    if (!loading && hasMore) {
+      setLoading(true)
+      try {
+        const responseData = await getData()
+        const startIndex = page * 8
+        const endIndex = startIndex + 8
+        const newData = responseData.slice(startIndex, endIndex)
+        setDados(prevData => [...prevData, ...newData])
+        setPage(prevPage => prevPage + 1)
+        setHasMore(responseData.length > endIndex)
+      } catch (error) {
+        console.error('Erro ao carregar mais dados:', error)
+      }
+      setLoading(false)
+    }
+  }
 
   return (
     <div>
@@ -98,11 +100,11 @@ export default function Home() {
             <Carregando />
           </div>
         )}
-        {/* {loading && (
+        {loading && (
           <div className="items-center">
             <Carregando />
           </div>
-        )} */}
+        )}
       </div>
     </div>
   )
