@@ -6,9 +6,5 @@ import { getData } from '@/utils/actions'
 export default async function Home() {
   const responseData = await getData()
 
-  return (
-    <div>
-      <Segredos segredos={responseData} />
-    </div>
-  )
+  return <Segredos segredos={responseData} />
 }
