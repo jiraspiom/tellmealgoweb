@@ -9,7 +9,7 @@ import CardXRetro from './CardXRetro'
 
 export default function Segredos({ segredos }: { segredos: DadoSegredo[] }) {
   return (
-    <div className="container mx-auto max-w-2x1 p-4">
+    <div className="container mx-auto max-w-2x1 p-1 ">
       {/* <h1 className="text-3xl font-bold mb-6">...</h1> */}
 
       <WhatsHappeningRetro />
