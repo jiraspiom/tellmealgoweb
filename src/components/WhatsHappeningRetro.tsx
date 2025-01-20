@@ -28,6 +28,9 @@ export default function WhatsHappeningRetro() {
       <Card className="retro-card mb-6">
         <CardContent>
           <div className="">
+            <div className="flex items-center ">
+              <Indicador onClick={handleIndicadorClick} />
+            </div>
             <div className="mt-4 ">
               <Textarea
                 name="texto"
@@ -44,13 +47,9 @@ export default function WhatsHappeningRetro() {
               <div className="flex items-center">
                 <BotaoTwitter novaCor={cor} />
               </div>
-
-              <div className="flex items-center ">
-                <Indicador onClick={handleIndicadorClick} />
-              </div>
             </div>
 
-            <hr className="border-1 border-red-100 " />
+            {/* <hr className="border-1 border-red-100 " /> */}
           </div>
         </CardFooter>
       </Card>
