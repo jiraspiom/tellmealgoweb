@@ -6,6 +6,7 @@ import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
 import { Button } from './ui/button'
 import { postLike } from '@/utils/actions'
 import type { DadoSegredo } from '@/lib/interfaces'
+import { cn } from '@/lib/utils'
 
 interface CardXProps {
   segredo: DadoSegredo
@@ -23,7 +24,7 @@ export default function CardXRetro({ segredo }: CardXProps) {
     await postLike(id)
   }
   return (
-    <Card className="retro-card mb-4 min-w-full ">
+    <Card className={cn(['retro-card mb-4 min-w-full'])}>
       <CardHeader>
         <div className="flex items-center justify-between">
           <Avatar className={`mr-2 ${segredo.cor} rounded-full p-2`}>

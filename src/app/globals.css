@@ -72,6 +72,32 @@ body {
   }
 }
 
+/* .botao-retro {
+  @apply border-2
+  shadow-[4px_4px_0_0_black]
+  transition-all duration-150
+  hover:translate-x-[2px] hover:translate-y-[3px]
+  hover:shadow-[2px_2px_0_0_black]
+  active:translate-x-[4px] active:translate-y-[4px]
+  active:shadow-none
+} */
+
+.botao-retro {
+  border-width: 2px;
+  box-shadow: 4px 4px 0 0 black;
+  transition: all 0.15s ease;
+}
+
+.botao-retro:hover {
+  transform: translate(2px, 3px);
+  box-shadow: 2px 2px 0 0 black;
+}
+
+.botao-retro:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
 .primeiro {
   color: black;
   border: 2px solid black;
@@ -116,5 +142,8 @@ body {
 }
 
 .botazinho {
-  box-shadow: -5px -5px blue;
+  border: 2px solid black;
+  box-shadow: 5px 5px aquamarine, 5px 5px 0 2px black;
+  opacity: 1;
+  transition: 0.3s;
 }

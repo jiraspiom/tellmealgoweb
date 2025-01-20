@@ -12,7 +12,7 @@ export default function BotaoTwitter({ onClick, novaCor }: iBotao) {
       <Button
         onClick={onClick}
         type="submit"
-        className={`mb-2 mr-2  mt-2 rounded-full  bg-blue-400 px-8 py-2 font-bold text-white hover:bg-blue-500 ${novaCor}`}
+        className={`botao-retro mb-2 mr-2  mt-2 rounded-full  bg-blue-400 px-8 py-2 font-bold text-white hover:bg-blue-500 ${novaCor}`}
       >
         Hi :)
       </Button>
