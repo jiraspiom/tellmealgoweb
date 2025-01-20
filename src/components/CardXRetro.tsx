@@ -24,11 +24,14 @@ export default function CardXRetro({ segredo }: CardXProps) {
     await postLike(id)
   }
   return (
-    <Card className={cn(['retro-card mb-4 min-w-full'])}>
+    <Card className={cn(['retro-card mb-3 min-w-full', `${segredo.cor}`])}>
       <CardHeader>
         <div className="flex items-center justify-between">
-          <Avatar className={`mr-2 ${segredo.cor} rounded-full p-2`}>
-            <AvatarImage src={'/cat01.png'} className="h-12 w-12" />
+          <Avatar className={`mr-2 ${segredo.cor} rounded-full p-1 border-2`}>
+            <AvatarImage
+              src={'/cat01.png'}
+              className="h-12 w-12 rounded-full"
+            />
           </Avatar>
           <p className="my-0.5 py-1  text-gray-100 text-sm dark:text-gray-400">
             {segredo.dataAt && format(segredo.dataAt, 'hh:mm a · MMM dd, yyyy')}
