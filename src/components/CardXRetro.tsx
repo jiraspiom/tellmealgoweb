@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { format } from 'date-fns'
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card'
 import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
-import { Button } from './ui/button'
+import { Button, buttonVariants } from './ui/button'
 import { postLike } from '@/utils/actions'
 import type { DadoSegredo } from '@/lib/interfaces'
 import { cn } from '@/lib/utils'
@@ -24,8 +24,8 @@ export default function CardXRetro({ segredo }: CardXProps) {
     await postLike(id)
   }
   return (
-    <Card className={cn(['retro-card mb-3 min-w-full', `${segredo.cor}`])}>
-      <CardHeader>
+    <Card className={cn(['retro-card min-w-full', `${segredo.cor}`, 'mb-2'])}>
+      <CardHeader className="-m-4">
         <div className="flex items-center justify-between">
           <Avatar className={`mr-2 ${segredo.cor} rounded-full p-1 border-2`}>
             <AvatarImage
@@ -33,15 +33,15 @@ export default function CardXRetro({ segredo }: CardXProps) {
               className="h-12 w-12 rounded-full"
             />
           </Avatar>
-          <p className="my-0.5 py-1  text-gray-100 text-sm dark:text-gray-400">
+          <div className="text-gray-100 text-sm dark:text-gray-400">
             {segredo.dataAt && format(segredo.dataAt, 'hh:mm a · MMM dd, yyyy')}
-          </p>
+          </div>
         </div>
       </CardHeader>
-      <CardContent>
-        <p className="mt-3 block text-xl leading-snug text-gray-100 dark:text-white mb-2">
+      <CardContent className="-m-5">
+        <div className="mt-3 block text-xl leading-snug text-gray-100 dark:text-white mb-2">
           {segredo.segredo}
-        </p>
+        </div>
         <div className="flex justify-center w-[388p]">
           <Image
             className="rounded-sm"
@@ -51,13 +51,12 @@ export default function CardXRetro({ segredo }: CardXProps) {
             alt="gatos"
           />
         </div>
+        <div className="mt-1 border border-b-0 border-gray-200 dark:border-gray-600" />
       </CardContent>
-      <CardFooter>
+      <CardFooter className="p-0">
         <div className="flex flex-col">
-          <div className="my-1 border border-b-0 border-gray-200 dark:border-gray-600" />
-
-          <div className="mt-3 flex text-gray-100 dark:text-gray-400">
-            <div className="mr-6 flex items-center">
+          <div className="my-2 flex text-gray-100 dark:text-gray-400">
+            <div className="flex items-center">
               <Button variant={'ghost'} onClick={() => clicou(segredo.id)}>
                 💣 {segredo.coracao ? segredo.coracao : 0}
               </Button>

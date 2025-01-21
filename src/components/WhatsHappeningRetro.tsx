@@ -25,13 +25,13 @@ export default function WhatsHappeningRetro() {
 
   return (
     <form action={teste}>
-      <Card className="retro-card mb-6">
+      <Card className="retro-card mb-2">
         <CardContent>
           <div className="">
-            <div className="flex items-center ">
+            <div className="flex items-center mt-1 -ml-5">
               <Indicador onClick={handleIndicadorClick} />
             </div>
-            <div className="mt-4 ">
+            <div className="mt-2 -mx-4">
               <Textarea
                 name="texto"
                 className="retro-text-area resize-none overflow-hidden min-h-[40px] "
@@ -42,15 +42,11 @@ export default function WhatsHappeningRetro() {
           </div>
         </CardContent>
         <CardFooter>
-          <div className="flex flex-col">
-            <div className="flex flex-row">
-              <div className="flex items-center">
-                <BotaoTwitter novaCor={cor} />
-              </div>
-            </div>
-
-            {/* <hr className="border-1 border-red-100 " /> */}
+          <div className="flex items-center -m-4">
+            <BotaoTwitter novaCor={cor} />
           </div>
+
+          {/* <hr className="border-1 border-red-100 " /> */}
         </CardFooter>
       </Card>
     </form>
