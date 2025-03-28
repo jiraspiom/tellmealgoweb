@@ -21,8 +21,9 @@ interface CardXProps {
 
 export default function CardXRetro({ segredo }: CardXProps) {
   const getYouTubeEmbedUrl = (url: string) => {
+    // /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/
     const match = url.match(
-      /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/
+      /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([\w-]+)/
     )
 
     if (!match) {
