@@ -24,7 +24,6 @@ export default function CardXRetro({ segredo }: CardXProps) {
     const match = url.match(
       /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/
     )
-    console.log('uai')
 
     if (!match) {
       return {
