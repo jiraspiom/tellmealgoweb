@@ -20,6 +20,27 @@ interface CardXProps {
 //   coracao: string
 
 export default function CardXRetro({ segredo }: CardXProps) {
+  const getYouTubeEmbedUrl = (url: string) => {
+    const match = url.match(
+      /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/
+    )
+    console.log('uai')
+
+    if (!match) {
+      return {
+        linkvideo: null,
+        texto: url,
+      }
+    }
+    const linkvideo = `https://www.youtube.com/embed/${match[1]}`
+
+    const texto = url.replace(match[0], '')
+
+    return { linkvideo, texto }
+  }
+
+  const secret = segredo.segredo ? getYouTubeEmbedUrl(segredo.segredo) : null
+
   const clicou = async (id: string) => {
     await postLike(id)
   }
@@ -40,16 +61,29 @@ export default function CardXRetro({ segredo }: CardXProps) {
       </CardHeader>
       <CardContent className="-m-5">
         <div className="mt-3 block text-xl leading-snug text-gray-100 dark:text-white mb-2">
-          {segredo.segredo}
+          {/* {segredo.segredo} */}
+          {secret?.texto}
         </div>
         <div className="flex justify-center w-[388p]">
-          <Image
-            className="rounded-sm"
-            src={segredo.urlImage ? segredo.urlImage : 'www'}
-            width={388}
-            height={388}
-            alt="gatos"
-          />
+          {secret?.linkvideo && (
+            <iframe
+              width="488"
+              height="274"
+              src={secret.linkvideo}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          )}
+          {!secret?.linkvideo && (
+            <Image
+              className="rounded-sm"
+              src={segredo.urlImage ? segredo.urlImage : 'www'}
+              width={388}
+              height={388}
+              alt="gatos"
+            />
+          )}
         </div>
         <div className="mt-1 border border-b-0 border-gray-200 dark:border-gray-600" />
       </CardContent>

@@ -2,12 +2,10 @@
 
 import { ScrollArea } from '@radix-ui/react-scroll-area'
 import { Carregando } from './Carregando'
-import { Moon, Sun } from 'lucide-react'
 import type { DadoSegredo } from '@/lib/interfaces'
 import WhatsHappeningRetro from './WhatsHappeningRetro'
 import CardXRetro from './CardXRetro'
 import { useTheme } from 'next-themes'
-import { Button } from './ui/button'
 
 export default function Segredos({ segredos }: { segredos: DadoSegredo[] }) {
   const { setTheme } = useTheme()
